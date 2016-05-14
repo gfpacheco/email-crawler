@@ -1,4 +1,9 @@
 #loadingIndicator,
+#errorIndicator,
 #emailList {
   display: none;
+}
+
+#errorIndicator {
+  color: red;
 }

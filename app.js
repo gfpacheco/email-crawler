@@ -3,6 +3,7 @@ const emailFinder = require('./email-finder');
 
 const searchForm = document.getElementById('searchForm');
 const loadingIndicator = document.getElementById('loadingIndicator');
+const errorIndicator = document.getElementById('errorIndicator');
 const emailList = document.getElementById('emailList');
 
 const search = event => {
@@ -12,6 +13,7 @@ const search = event => {
 
   searchForm.enabled = false;
   loadingIndicator.style.display = 'block';
+  errorIndicator.style.display = 'none';
   emailList.style.display = 'none';
 
   while (emailList.firstChild) {
@@ -19,37 +21,36 @@ const search = event => {
   }
 
   google.search(companyName, (err, results) => {
-    if (err) {
-      // TODO: show error indicator
-      return;
+    const emails = findEmailsFromSearchResults(results);
+
+    if (!emails.length) {
+      emails.push('No emails were found :/');
     }
 
-    findEmailsFromSearchResults(results);
+    fillEmailList(emails);
+
+    searchForm.enabled = true;
+    loadingIndicator.style.display = 'none';
+    errorIndicator.style.display = err ? 'block' : 'none';
+    emailList.style.display = err ? 'none' : 'block';
   });
 };
 
 const findEmailsFromSearchResults = results => {
   const snippets = results.map(result => result.snippet);
 
-  const emails = snippets.reduce(
+  return snippets.reduce(
     (emails, snippet) => emails.concat(emailFinder.findEmails(snippet)),
     []
   );
-
-  showEmails(emails);
 };
 
-const showEmails = emails => {
-  searchForm.enabled = true;
-  loadingIndicator.style.display = 'none';
-
+const fillEmailList = emails => {
   emails.forEach(email => {
     const listItem = document.createElement('li');
     listItem.innerText = email;
     emailList.appendChild(listItem);
   });
-
-  emailList.style.display = 'block';
 };
 
 searchForm.onsubmit = search;
