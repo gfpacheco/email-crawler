@@ -1,4 +1,5 @@
 const google = require('./google');
+const emailFinder = require('./email-finder');
 
 const searchForm = document.getElementById('searchForm');
 const loadingIndicator = document.getElementById('loadingIndicator');
@@ -28,11 +29,13 @@ const search = event => {
 };
 
 const findEmailsFromSearchResults = results => {
-  // TODO: parse search response and find the emails
-  const emails = [
-    'contact@company-name.com',
-    'support@company-name.com',
-  ];
+  const snippets = results.map(result => result.snippet);
+
+  const emails = snippets.reduce(
+    (emails, snippet) => emails.concat(emailFinder.findEmails(snippet)),
+    []
+  );
+
   showEmails(emails);
 };
 
