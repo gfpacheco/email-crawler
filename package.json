@@ -1,0 +1,18 @@
+{
+  "name": "email-crawler",
+  "version": "0.0.1",
+  "description": "Search the web for emails by company name",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "keywords": [
+    "email",
+    "crawler"
+  ],
+  "author": "Guilherme Pacheco <guilherme.f.pacheco@gmail.com>",
+  "devDependencies": {
+    "electron-prebuilt": "^1.0.1",
+    "jscs": "^3.0.3"
+  }
+}
