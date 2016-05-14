@@ -5,10 +5,15 @@
     <title>Email Crawler</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1>Search the web for emails by company name</h1>
+    <form id="searchForm">
+      <input type="text" name="companyName" placeholder="Google, Facebook, Twitter...">
+      <input type="submit" value="Search!">
+    </form>
+    <p id="loadingIndicator">
+      Searching...
+    </p>
+    <ul id="emailList"></ul>
   </body>
 
   <script>
