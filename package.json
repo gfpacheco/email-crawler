@@ -13,6 +13,7 @@
   "author": "Guilherme Pacheco <guilherme.f.pacheco@gmail.com>",
   "devDependencies": {
     "electron-prebuilt": "^1.0.1",
-    "jscs": "^3.0.3"
+    "jscs": "^3.0.3",
+    "request": "^2.72.0"
   }
 }
