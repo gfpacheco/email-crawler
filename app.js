@@ -9,9 +9,13 @@ const emailList = document.getElementById('emailList');
 const search = event => {
   event.preventDefault();
 
+  if (searchForm.submit.disabled) {
+    return;
+  }
+
   const companyName = searchForm.companyName.value;
 
-  searchForm.enabled = false;
+  searchForm.submit.disabled = true;
   loadingIndicator.style.display = 'block';
   errorIndicator.style.display = 'none';
   emailList.style.display = 'none';
@@ -29,7 +33,7 @@ const search = event => {
 
     fillEmailList(emails);
 
-    searchForm.enabled = true;
+    searchForm.submit.disabled = false;
     loadingIndicator.style.display = 'none';
     errorIndicator.style.display = err ? 'block' : 'none';
     emailList.style.display = err ? 'none' : 'block';
