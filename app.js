@@ -6,6 +6,8 @@ const loadingIndicator = document.getElementById('loadingIndicator');
 const errorIndicator = document.getElementById('errorIndicator');
 const emailList = document.getElementById('emailList');
 
+const numberOfPagesToSearch = 10;
+
 const search = event => {
   event.preventDefault();
 
@@ -24,7 +26,7 @@ const search = event => {
     emailList.removeChild(emailList.firstChild);
   }
 
-  google.search(companyName, (err, results) => {
+  google.search(companyName, numberOfPagesToSearch, (err, results) => {
     const emails = findEmailsFromSearchResults(results);
 
     if (!emails.length) {
