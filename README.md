@@ -1,3 +1,6 @@
+> Hell yeah it could be a simple script. I had that script and I used it to test Electron's power.
+> It works, but I'm not happy with the result though, app file too big =/
+
 # Email crawler
 
 Uses the Google Custom Search API and look for emails related to the given keyword.
