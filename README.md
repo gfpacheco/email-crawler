@@ -27,3 +27,13 @@ After that, run:
 # Run the app
 npm start
 ```
+
+## Distribute
+
+> The current setup only builds the app for OSX, change `package.json` to build for other platforms.
+
+To package the app for distribution:
+
+```bash
+npm run dist
+```
