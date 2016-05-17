@@ -1,4 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#title {
+  margin-bottom: 5px;
+}
+
+input {
+  height: 42px;
+  padding: 10px 15px;
+  font-size: 1em;
+}
+
+#searchField {
+  width: 300px;
+}
+
+#submitField {
+  border: 0;
+  background: #f1f1f1;
+}
+
+#caption {
+  margin-top: 5px;
+}
+
+body.searched {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+body.searched #title,
+body.searched #caption {
+  display: none;
+}
+
 #loadingIndicator,
+#notFoundIndicator,
 #errorIndicator,
 #emailList {
   display: none;
@@ -6,4 +58,8 @@
 
 #errorIndicator {
   color: red;
+}
+
+#emailList li {
+  padding: 10px;
 }

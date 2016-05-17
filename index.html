@@ -6,18 +6,22 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Search the web for emails by company name</h1>
+    <h1 id="title">EmailCrawler</h1>
     <form id="searchForm">
-      <input type="text" name="companyName" placeholder="Google, Facebook, Twitter...">
-      <input type="submit" name="submit" value="Search!">
+      <input id="searchField" type="text" name="keywords" placeholder="Google, Facebook, Twitter...">
+      <input id="submitField" type="submit" name="submit" value="Search!">
     </form>
+    <p id="caption">Search the web for emails from a keyword</p>
     <p id="loadingIndicator">
       Searching...
+    </p>
+    <p id="notFoundIndicator">
+      No emails were found :/
     </p>
     <p id="errorIndicator">
       An error occured while searching :(
     </p>
-    <ul id="emailList"></ul>
+    <ol id="emailList"></ol>
   </body>
 
   <script>

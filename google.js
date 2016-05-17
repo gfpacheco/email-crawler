@@ -22,7 +22,10 @@ google.search = (query, numberOfPages, callback) => {
       callback(err, err ? [] : body.items);
     });
   }, (err, resultsList) => {
-    const results = (resultsList || []).reduce((results, result) => results.concat(result), []);
+    const results = (resultsList || []).reduce(
+      (results, result) => results.concat(result || []),
+      []
+    );
     callback(err, results);
   });
 };
