@@ -2,18 +2,15 @@
 
 Uses the Google Custom Search API and look for emails related to the given keyword.
 
-## To Use
+## Develop
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
 
 From your command line:
 
 ```bash
-# Clone this repository
 git clone https://github.com/gfpacheco/email-crawler
-# Go into the repository
 cd email-crawler
-# Install dependencies
 npm install
 ```
 
@@ -24,7 +21,6 @@ and get your key! It's free!
 After that, run:
 
 ```bash
-# Run the app
 npm start
 ```
 
@@ -36,4 +32,17 @@ To package the app for distribution:
 
 ```bash
 npm run dist
+```
+
+## Release
+
+You need two things before using the release script:
+
+1. Update the repository field in `package.json` to match one you have the correct access rights.
+2. Generate a [GitHub Personal access tokens](https://github.com/settings/tokens)
+
+Then:
+
+```bash
+npm run release -- GITHUB_TOKEN
 ```
