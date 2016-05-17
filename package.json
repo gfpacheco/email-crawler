@@ -1,5 +1,6 @@
 {
   "name": "email-crawler",
+  "productName": "Email Crawler",
   "version": "0.0.1",
   "description": "Search the web for emails by company name",
   "main": "main.js",
