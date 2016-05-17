@@ -1,7 +1,7 @@
 {
   "name": "email-crawler",
   "productName": "EmailCrawler",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Search the web for emails by company name",
   "main": "main.js",
   "repository": {
