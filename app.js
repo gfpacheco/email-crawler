@@ -44,11 +44,25 @@ const search = event => {
 
 const findEmailsFromSearchResults = results => {
   const snippets = results.map(result => result.snippet);
-
-  return snippets.reduce(
+  const emails = snippets.reduce(
     (emails, snippet) => emails.concat(emailFinder.findEmails(snippet)),
     []
   );
+  return filterUniques(emails);
+};
+
+const filterUniques = emails => {
+  const added = {};
+  const uniques = [];
+
+  emails.forEach(email => {
+    if (!added[email]) {
+      uniques.push(email);
+      added[email] = true;
+    }
+  });
+
+  return uniques;
 };
 
 const fillEmailList = emails => {
